@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Цветы и клубника в шоколаде</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Шапка сайта -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="На главную">
+        <span class="logo-icon" aria-hidden="true">🌺🍓</span>
+        <span class="logo-text">Цветы & Шоколад</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Главное меню">
+        <a href="#shop">Магазин</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#checkout">Оформление</a>
+      </nav>
+
+      <button id="cartToggle" class="cart-toggle" aria-label="Открыть корзину">
+        🛒
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Геро секция -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h1>Цветы и клубника в шоколаде</h1>
+      <p>Красиво оформленные букеты и сладкие угощения — для любых праздников и сюрпризов.</p>
+      <a href="#shop" class="btn btn-primary">Перейти в магазин</a>
+    </div>
+  </section>
+
+  <!-- Магазин -->
+  <section id="shop" class="container shop-section" aria-label="Каталог товаров">
+    <h2 class="section-title">Наши товары</h2>
+    <div id="productGrid" class="product-grid"></div>
+  </section>
+
+  <!-- Оформление заказа (форма) -->
+  <section id="checkout" class="container checkout-section" aria-label="Оформление заказа">
+    <h2 class="section-title">Оформление заказа</h2>
+    <form id="checkoutForm" class="checkout-form" autocomplete="on" novalidate>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="customerName">Имя</label>
+          <input type="text" id="customerName" name="customerName" required placeholder="Иван">
+        </div>
+        <div class="form-group">
+          <label for="customerPhone">Телефон</label>
+          <input type="tel" id="customerPhone" name="customerPhone" required placeholder="+7 900 000 0000" pattern="^[+0-9\s()-]+$">
+        </div>
+        <div class="form-group">
+          <label for="deliveryAddress">Доставка</label>
+          <input type="text" id="deliveryAddress" name="deliveryAddress" required placeholder="Москва, ул. Цветочная, д. 1">
+        </div>
+        <div class="form-group">
+          <label for="paymentMethod">Способ оплаты</label>
+          <select id="paymentMethod" name="paymentMethod" required>
+            <option value="card">Картой онлайн</option>
+            <option value="cash">Наложенный платеж</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="summary">
+        <h3>Итого</h3>
+        <p id="summaryText">0 ₽</p>
+        <button type="submit" class="btn btn-success">Подтвердить заказ</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contacts" class="container contacts-section" aria-label="Контакты">
+    <h2 class="section-title">Контакты</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <strong>Телефон:</strong> +7 (495) 123-45-67
+      </div>
+      <div class="contact-card">
+        <strong>Email:</strong> hello@flowers-chocolate.example
+      </div>
+      <div class="contact-card">
+        <strong>Адрес магазина:</strong> г. Москва, ул. Цветочная, 12
+      </div>
+    </div>
+
+    <form id="contactForm" class="contact-form" aria-label="Форма обратной связи">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="nameFeedback">Ваше имя</label>
+          <input type="text" id="nameFeedback" name="nameFeedback" required placeholder="Иван">
+        </div>
+        <div class="form-group">
+          <label for="emailFeedback">Email</label>
+          <input type="email" id="emailFeedback" name="emailFeedback" required placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="messageFeedback">Сообщение</label>
+          <textarea id="messageFeedback" name="messageFeedback" rows="4" placeholder="Ваш вопрос или комментарий..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+  </section>
+
+  <!-- Подвал -->
+  <footer class="site-footer container">
+    © 2026 Цветы & Шоколад. Все права защищены.
+  </footer>
+
+  <!-- Корзина (модальное окно/панель) -->
+  <aside id="cartPanel" class="cart-panel" aria-label="Корзина" aria-hidden="true" role="dialog">
+    <div class="cart-header">
+      <h3>Ваша корзина</h3>
+      <button id="cartClose" class="close-btn" aria-label="Закрыть корзину">✖</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-total" id="cartTotal">Итого: 0 ₽</div>
+    <div class="cart-actions">
+      <button id="clearCart" class="btn">Очистить</button>
+      <button id="checkoutFromCart" class="btn btn-primary">Перейти к оформлению</button>
+    </div>
+  </aside>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
